@@ -2,28 +2,30 @@
 const  feedbackFormEl= document.querySelector('.feedback-form');
 console.log(feedbackFormEl);
 
-const key = "feedback-form-state";
+const LOCAL_KEY = "feedback-form-state";
 
 // feedbackFormEl.elements.value = localStorage.getItem(key) ?? "";
 
+let dataForm = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
+const { email, message } = form.elements;
 
-
-function setLocalStorage(event) {
-    const feedbackForm = {
-        email: event.target.value,
-        message: event.target.value,
-    }
-    // const evTargetValue = event.target.value;
-    localStorage.setItem(key , JSON.stringify(feedbackForm));
+function onFormInput(event) {
+    
+    // const feedbackForm = {
+    //     email: event.target.value,
+    //     message: event.target.value,
+    // }
+    const evtTargetValue = event.target.value;
+    localStorage.setItem(LOCAL_KEY , evtTargetValue);
+    console.log(evtTargetValue);
     
 };
-function removeLocalStorage(event) {
+function onFormSubmit(event) {
     event.preventDefault();
-    localStorage.removeItem(localStorageKey);
-    feedbackFormEl.reset();
-  }
+    // localStorage.removeItem(localStorageKey);
+    event.CurrentTarget.reset();
+  };
 
 
-
-feedbackFormEl.addEventListener('input', setLocalStorage);
-feedbackFormEl.addEventListener("submit", removeLocalStorage);
+feedbackFormEl.addEventListener('input', onFormInput);
+feedbackFormEl.addEventListener('submit', onFormSubmit);
