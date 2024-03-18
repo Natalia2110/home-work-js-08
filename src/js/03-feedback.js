@@ -6,9 +6,9 @@ const refs = {
   textArea: document.querySelector('.feedback-form textarea'),
 };
 // const  feedbackFormEl= document.querySelector('.feedback-form');
-console.log(refs.form);
-console.log(refs.input);
-console.log(refs.textArea);
+// console.log(refs.form);
+// console.log(refs.input);
+// console.log(refs.textArea);
 
 const localStorageKey = "feedback-form-state";
 
